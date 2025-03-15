@@ -1,9 +1,9 @@
 import React from 'react';
-import { CalendarListProps } from '../../calendar-list';
+import {CalendarListProps} from '../../calendar-list';
 export interface WeekCalendarProps extends CalendarListProps {
-    /** whether to have shadow/elevation for the calendar */
-    allowShadow?: boolean;
-    disableOnPageChange?: boolean;
+  /** whether to have shadow/elevation for the calendar */
+  allowShadow?: boolean;
+  disableOnPageChange?: boolean;
 }
 declare const WeekCalendar: (props: WeekCalendarProps) => React.JSX.Element;
 export default WeekCalendar;

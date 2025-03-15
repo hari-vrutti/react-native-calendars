@@ -71,7 +71,7 @@ const WeekCalendar = props => {
       if (onDayPress) {
         onDayPress(value);
       } else {
-        setDate?.(value.dateString, UpdateSources.DAY_PRESS);
+        // setDate?.(value.dateString, UpdateSources.DAY_PRESS);
       }
     },
     [onDayPress]
