@@ -18,13 +18,26 @@ import {DateData} from '../../types';
 export interface WeekCalendarProps extends CalendarListProps {
   /** whether to have shadow/elevation for the calendar */
   allowShadow?: boolean;
+  disableOnPageChange?: boolean;
+  onSwipeWeek?: (date: string) => void;
 }
 
 const NUMBER_OF_PAGES = 50;
 const DEFAULT_PAGE_HEIGHT = 48;
 
 const WeekCalendar = (props: WeekCalendarProps) => {
-  const {current, firstDay = 0, markedDates, allowShadow = true, hideDayNames, theme, calendarWidth, calendarHeight = DEFAULT_PAGE_HEIGHT, testID} = props;
+  const {
+    current,
+    firstDay = 0,
+    markedDates,
+    allowShadow = true,
+    hideDayNames,
+    theme,
+    calendarWidth,
+    calendarHeight = DEFAULT_PAGE_HEIGHT,
+    testID,
+    disableOnPageChange = false
+  } = props;
   const context = useContext(CalendarContext);
   const {date, updateSource} = context;
   const style = useRef(styleConstructor(theme));
@@ -60,7 +73,11 @@ const WeekCalendar = (props: WeekCalendarProps) => {
 
   const onPageChange = useCallback(
     (pageIndex: number, _prevPage, {scrolledByUser}) => {
-      if (scrolledByUser) {
+      const selectedDate = new XDate(items[pageIndex]);
+      const monthName = selectedDate.toString('MMMM');
+      const yearNumber = selectedDate.getFullYear();
+      context.onSwipeWeek?.(monthName, yearNumber.toString());
+      if (scrolledByUser && disableOnPageChange) {
         context?.setDate(items[pageIndex], UpdateSources.WEEK_SCROLL);
       }
     },
@@ -105,7 +122,7 @@ const WeekCalendar = (props: WeekCalendarProps) => {
     >
       {!hideDayNames && (
         <View style={[style.current.week, style.current.weekCalendar]}>
-          <WeekDaysNames firstDay={firstDay} style={style.current.dayHeader}/>
+          <WeekDaysNames firstDay={firstDay} style={style.current.dayHeader} />
         </View>
       )}
       <View>
