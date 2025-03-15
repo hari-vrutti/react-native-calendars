@@ -11,8 +11,6 @@ export function getState(day, current, props, disableDaySelection) {
     state = 'disabled';
   } else if (isDateNotInRange(day, minDate, maxDate)) {
     state = 'disabled';
-  } else if (!sameMonth(day, current)) {
-    state = 'disabled';
   } else if (disabledByWeekDays && disabledByWeekDays.indexOf(day.getDay()) !== -1) {
     state = 'disabled';
   }
