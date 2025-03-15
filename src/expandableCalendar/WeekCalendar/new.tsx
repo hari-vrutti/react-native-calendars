@@ -19,7 +19,6 @@ export interface WeekCalendarProps extends CalendarListProps {
   /** whether to have shadow/elevation for the calendar */
   allowShadow?: boolean;
   disableOnPageChange?: boolean;
-  onSwipeWeek?: (date: string) => void;
 }
 
 const NUMBER_OF_PAGES = 50;
@@ -76,7 +75,7 @@ const WeekCalendar = (props: WeekCalendarProps) => {
       const selectedDate = new XDate(items[pageIndex]);
       const monthName = selectedDate.toString('MMMM');
       const yearNumber = selectedDate.getFullYear();
-      context.onSwipeWeek?.(monthName, yearNumber.toString());
+      props.onSwipeWeek?.(monthName, yearNumber.toString());
       if (scrolledByUser && disableOnPageChange) {
         context?.setDate(items[pageIndex], UpdateSources.WEEK_SCROLL);
       }

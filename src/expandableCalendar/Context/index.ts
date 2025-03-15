@@ -6,7 +6,6 @@ export interface CalendarContextProps {
   setDate: (date: string, source: UpdateSources) => void;
   updateSource: UpdateSources;
   setDisabled: (disable: boolean) => void;
-  onSwipeWeek?: (month_name: string, year_number: string) => void;
   numberOfDays?: number;
   timelineLeftInset?: number;
 }
