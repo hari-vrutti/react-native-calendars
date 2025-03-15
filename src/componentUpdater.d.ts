@@ -71,6 +71,7 @@ export declare function extractCalendarProps(props: CalendarListProps): {
     onDayLongPress?: ((date: import("./types").DateData) => void) | undefined;
     onMonthChange?: ((date: import("./types").DateData) => void) | undefined;
     onVisibleMonthsChange?: ((months: import("./types").DateData[]) => void) | undefined;
+    onSwipeWeek?: ((month_name: string, year_number: string) => void) | undefined;
     disableMonthChange?: boolean | undefined;
     enableSwipeMonths?: boolean | undefined;
     headerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
@@ -314,6 +315,7 @@ export declare function extractCalendarListProps(props: AgendaProps): {
     onDayLongPress?: ((date: import("./types").DateData) => void) | undefined;
     onMonthChange?: ((date: import("./types").DateData) => void) | undefined;
     onVisibleMonthsChange?: ((months: import("./types").DateData[]) => void) | undefined;
+    onSwipeWeek?: ((month_name: string, year_number: string) => void) | undefined;
     disableMonthChange?: boolean | undefined;
     enableSwipeMonths?: boolean | undefined;
     headerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;

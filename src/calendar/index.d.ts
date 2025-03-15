@@ -32,6 +32,8 @@ export interface CalendarProps extends CalendarHeaderProps, DayProps {
     onMonthChange?: (date: DateData) => void;
     /** Handler which gets executed when visible month changes in calendar */
     onVisibleMonthsChange?: (months: DateData[]) => void;
+    /** handel on Swipe to send month_name and year_number */
+    onSwipeWeek?: (month_name: string, year_number: string) => void;
     /** Disables changing month when click on days of other months (when hideExtraDays = false) */
     disableMonthChange?: boolean;
     /** Enable the option to swipe between months */

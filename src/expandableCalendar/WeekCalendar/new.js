@@ -59,7 +59,7 @@ const WeekCalendar = props => {
       const selectedDate = new XDate(items[pageIndex]);
       const monthName = selectedDate.toString('MMMM');
       const yearNumber = selectedDate.getFullYear();
-      context.onSwipeWeek?.(monthName, yearNumber.toString());
+      props.onSwipeWeek?.(monthName, yearNumber.toString());
       if (scrolledByUser && disableOnPageChange) {
         context?.setDate(items[pageIndex], UpdateSources.WEEK_SCROLL);
       }

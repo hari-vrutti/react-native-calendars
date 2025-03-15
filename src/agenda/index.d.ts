@@ -95,6 +95,7 @@ export default class Agenda extends Component<AgendaProps, State> {
         onDayLongPress?: React.Validator<((date: DateData) => void) | null | undefined> | undefined;
         onMonthChange?: React.Validator<((date: DateData) => void) | null | undefined> | undefined;
         onVisibleMonthsChange?: React.Validator<((months: DateData[]) => void) | null | undefined> | undefined;
+        onSwipeWeek?: React.Validator<((month_name: string, year_number: string) => void) | null | undefined> | undefined;
         disableMonthChange?: React.Validator<boolean | null | undefined> | undefined;
         enableSwipeMonths?: React.Validator<boolean | null | undefined> | undefined;
         headerStyle?: React.Validator<import("react-native").StyleProp<ViewStyle>> | undefined;
